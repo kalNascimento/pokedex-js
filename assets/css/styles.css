@@ -1,0 +1,82 @@
+@import url("./pokeball.css");
+@import url("./animation.css");
+@import url("./homepage.css");
+
+:root {
+    /* Cores */
+    --background: #F1F1F1;
+
+    --ion-color-primary: #242424;
+    --ion-color-primary-rgb: 36,36,36;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255,255,255;
+    --ion-color-primary-shade: #202020;
+    --ion-color-primary-tint: #3a3a3a;
+
+    --ion-color-secondary: #F23838;
+    --ion-color-secondary-rgb: 242,56,56;
+    --ion-color-secondary-contrast: #ffffff;
+    --ion-color-secondary-contrast-rgb: 255,255,255;
+    --ion-color-secondary-shade: #d53131;
+    --ion-color-secondary-tint: #f34c4c;
+
+    --ion-color-tertiary: #1C2B59;
+    --ion-color-tertiary-rgb: 28,43,89;
+    --ion-color-tertiary-contrast: #ffffff;
+    --ion-color-tertiary-contrast-rgb: 255,255,255;
+    --ion-color-tertiary-shade: #19264e;
+    --ion-color-tertiary-tint: #33406a;
+
+    --ion-color-success: #2dd36f;
+    --ion-color-success-rgb: 45,211,111;
+    --ion-color-success-contrast: #000000;
+    --ion-color-success-contrast-rgb: 0,0,0;
+    --ion-color-success-shade: #28ba62;
+    --ion-color-success-tint: #42d77d;
+
+    --ion-color-warning: #ffc409;
+    --ion-color-warning-rgb: 255,196,9;
+    --ion-color-warning-contrast: #000000;
+    --ion-color-warning-contrast-rgb: 0,0,0;
+    --ion-color-warning-shade: #e0ac08;
+    --ion-color-warning-tint: #ffca22;
+
+    --ion-color-danger: #eb445a;
+    --ion-color-danger-rgb: 235,68,90;
+    --ion-color-danger-contrast: #ffffff;
+    --ion-color-danger-contrast-rgb: 255,255,255;
+    --ion-color-danger-shade: #cf3c4f;
+    --ion-color-danger-tint: #ed576b;
+
+    --ion-color-medium: #92949c;
+    --ion-color-medium-rgb: 146,148,156;
+    --ion-color-medium-contrast: #000000;
+    --ion-color-medium-contrast-rgb: 0,0,0;
+    --ion-color-medium-shade: #808289;
+    --ion-color-medium-tint: #9d9fa6;
+
+    --ion-color-light: #f4f5f8;
+    --ion-color-light-rgb: 244,245,248;
+    --ion-color-light-contrast: #000000;
+    --ion-color-light-contrast-rgb: 0,0,0;
+    --ion-color-light-shade: #d7d8da;
+    --ion-color-light-tint: #f5f6f9;
+    /* Fontes */
+    --font-16-regular: 1rem;
+    --font-16-bold: 1rem;
+    --font-24-regular: 1rem;
+    --font-24-bold: 1rem;
+    --font-32-regular: 1rem;
+    --font-32-bold: 1rem;
+    /* Outros */
+    --pokeball-animation-timing: 8s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+

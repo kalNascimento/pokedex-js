@@ -1,0 +1,108 @@
+/* .pokeball {
+    animation: 
+        pokeball
+        var(--pokeball-animation-timing)
+        1;
+}
+
+.pokeball__half {
+    animation: 
+        pokeball__half
+        var(--pokeball-animation-timing)
+        1;
+}
+
+.pokeball__circle--black { 
+    animation: 
+        pokeball__circle--black 
+        var(--pokeball-animation-timing) 
+        1; 
+}
+
+.pokeball__half--white { 
+    animation: 
+        pokeball__half--white 
+        var(--pokeball-animation-timing) 
+        1; 
+}
+.pokeball__half--red { 
+    animation: 
+        pokeball__half--red 
+        var(--pokeball-animation-timing) 
+        1; 
+} */
+
+.pokeball__circle--white { 
+    animation: 
+        pokeball__circle--white 
+        1s 
+        infinite; 
+}
+
+
+@keyframes pokeball {
+    0% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes pokeball__half {
+    0% {
+        top: 0;
+    }
+
+    90% {
+        top: 0;
+    }
+
+    100% {
+        top: -999px;
+    }
+}
+
+@keyframes pokeball__half--red {
+
+}
+
+@keyframes pokeball__half--white {
+    0% {
+        bottom: 0;
+    }
+
+    90% {
+        bottom: 0;
+    }
+
+    100% {
+        bottom: -999px;
+    }
+}
+
+@keyframes pokeball__circle--white {
+    100% { background-color: red; }
+}
+
+@keyframes pokeball__circle--black {
+    0% {
+        opacity: 1;
+        z-index: 2;
+    }
+
+    99% {
+        opacity: 1;
+        z-index: 2;
+    }
+
+    100% {
+        opacity: 0;
+        z-index: -2;
+    }
+}

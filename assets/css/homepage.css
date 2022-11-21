@@ -1,0 +1,33 @@
+#searchbar {
+    width: fit-content;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#searchbar-icon-outside {
+    font-size: 1.5rem;
+}
+
+#searchbar-icon-inside {
+    font-size: 1rem;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    padding: 0 8px;
+}
+
+.debug {
+    border: 1px solid red;
+}
+
+ion-card {
+    max-width: 350px;
+}
+
+ion-list {
+    display: flex;
+}

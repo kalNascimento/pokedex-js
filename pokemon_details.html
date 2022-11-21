@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script type="module" src="./assets/script/templates.js" defer></script>
+    <script type="module" src="./assets/script/function.js" defer></script>
+    <script type="module" src="./assets/script/pokemon_details.js" defer></script>
+    <title>.: POKEDEX :.</title>
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+</head>
+<body>
+    <ion-app>
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col class="ion-padding-horizontal">
+                            <ion-title>
+                                <img 
+                                    class="header-logo" 
+                                    src="./assets/img/pokeball_icon.svg" 
+                                    alt=""
+                                    >
+                            </ion-title>
+                        </ion-col>
+                        <ion-col class="ion-padding-horizontal ion-text-right">
+                            <ion-icon
+                                id="searchbar-icon-outside" 
+                                name="search-outline"
+                                onclick="searchVisible(true)">
+                            </ion-icon>
+                            <div 
+                                id="searchbar" 
+                                class="ion-hide ion-text-right">
+                                    <ion-icon
+                                        id="searchbar-icon-inside" 
+                                        name="search-outline"
+                                        onclick="">
+                                    </ion-icon>
+    
+                                    <input 
+                                        type="text" 
+                                        placeholder="Awesome Input">
+                                    </input>
+    
+                                    <ion-icon
+                                        id="searchbar-icon" 
+                                        name="close-outline"
+                                        onclick="searchVisible(false)">
+                                    </ion-icon>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-toolbar>
+        </ion-header>
+
+        <ion-content id="poke-details">
+
+        </ion-content>
+
+        <ion-footer>
+            <ion-toolbar color="secondary">
+                <ion-title
+                    class="ion-text-center">
+                    Dev by Kal Nascimento
+                </ion-title>
+            </ion-toolbar>
+        </ion-footer>
+    </ion-app>
+</body>
+</html>
