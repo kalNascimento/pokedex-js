@@ -5,7 +5,7 @@ const pokeDetails = document.getElementById('poke-details');
 
 let id = location.search.slice(4)
 
-async function getPokemons() {
+async function getPokemon() {
     let pokemon;
 
     try {
@@ -52,4 +52,4 @@ async function getPokemons() {
     document.getElementById(`pokecard-body-${pokemon.id}`).style.background = `light${pokemon.color}`;
 }
 
-getPokemons()
+getPokemon()

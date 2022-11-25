@@ -25,9 +25,21 @@ input {
 }
 
 ion-card {
-    max-width: 350px;
+    width: fit-content;
+    max-width: 300px;
 }
 
 ion-list {
     display: flex;
+}
+
+@media (min-width: 600px)
+{
+    ion-card {
+        width: 300px;
+    }
+
+    .ion-padding-vertical {
+        padding: 8rem;
+    }
 }

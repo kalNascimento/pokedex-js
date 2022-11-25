@@ -1,12 +1,13 @@
 import { Pokemon } from "./models.js";
-import { cardTemplate } from "./templates.js";
+import { cardTemplate, colors } from "./templates.js";
 
+let index = 20;
 const pokelist = document.getElementById("pokelist");
 let pokeArray = [];
 
 async function getPokemons() {
     try {
-        let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=0`);
+        let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${index}&offset=0`);
         let data = await response.json();
         createPokeObj(data.results)
     } 
@@ -19,81 +20,47 @@ async function getPokemons() {
 function createPokeObj(pokemon) {
     let pokemonObj;
 
-    pokemon.forEach(e => {
+    pokemon.forEach(async (e, i) => {
         let id = e.url.slice(34).replace('/', '')
-        pokemonObj = new Pokemon(
-            id,
-            e.name,
-            '',
-            '',
-            '',
-            `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`
-        )
-        pokeArray.push(pokemonObj);
+        let data;
+
+        try {
+            let response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+            data = await response.json();
+
+            pokemonObj = new Pokemon(
+                id,
+                e.name,
+                data.color.name,
+                data.habitat.name,
+                '',
+                `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`
+            )
+            pokeArray.push(pokemonObj);
+        }
+        catch(err) {
+            console.log(err);
+        }
+
+        if(i == (index - 1)) {
+            createCards(pokeArray);
+        }
     });
-    createCards(20);
 }
 
-function createCards(qttd) {
-    for(let i = 0; i < qttd; i++) {
-        let id = pokeArray[i].id;
-        pokelist.innerHTML += cardTemplate(pokeArray[i]);
-        document.getElementById(`pokecard-header-${id}`).style.background = "red";
-        document.getElementById(`pokecard-body-${id}`).style.background = "pink";
-        console.log(id)
-    }
+function createCards(pokemon) {
+    pokeArray = pokeArray.sort(function(a, b) {
+        return a.id - b.id;
+    });
+
+    pokeArray.forEach((poke) => {
+        let color = poke.color
+        pokelist.innerHTML += cardTemplate(poke);
+        document.getElementById(`pokecard-header-${poke.id}`)
+            .style.background = colors[color].normal;
+        document.getElementById(`pokecard-body-${poke.id}`)
+            .style.background = colors[color].light;
+    })
 }
 
 getPokemons();
-
-
-
-
-
-function getColor(id) {
-    let img = new Image();
-    img.src= `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`;
-    img.crossOrigin = "Anonymous";
-
-    var blockSize = 5,
-        defaultRGB = {r:0,g:0,b:0},
-        canvas = document.createElement('canvas'),
-        context = canvas.getContext && canvas.getContext('2d'),
-        data, width, height,
-        i = -4,
-        length,
-        rgb = {r:0,g:0,b:0},
-        count = 0;
-
-    if (!context) {
-        return defaultRGB;
-    }
-
-    height = canvas.height = img.height;
-    width = canvas.width = img.width;
-
-    context.drawImage(img, 0, 0);
-
-
-    try {
-        data = context.getImageData(0, 0, width, height);
-    }
-    catch {
-        console.log('error')
-    }
-
-    length = data.data.length;
-
-    while ( (i += blockSize * 4) < length ) {
-        ++count;
-        rgb.r += data.data[i];
-        rgb.g += data.data[i+1];
-        rgb.b += data.data[i+2];
-    }
-
-    rgb.r = ~~(rgb.r/count);
-    rgb.g = ~~(rgb.g/count);
-    rgb.b = ~~(rgb.b/count);
-
-    return rgb;
-}
