@@ -26,7 +26,7 @@ export function cardTemplate(pokemon) {
     return pokeCard;
 }
 
-export function CardDetailsGrafs(name, value) {
+export function cardDetailsGrafs(name, value) {
     const grafs = `
             <ion-col>
                 <ion-grid>
@@ -71,6 +71,18 @@ export function cardDetailsAbilities(name, desc) {
     return abilites;
 }
 
+export function cardTypeImg(imgURL) {
+    const img = `
+        <ion-col size="1">
+            <img 
+                alt="pokemons s2"
+                class="img-type" 
+                src="${imgURL}" />
+        </ion-col>
+    `
+    return img;
+}
+
 export const colors = {
     'red': {
         normal:'#F24C36',
@@ -112,4 +124,25 @@ export const colors = {
         normal:'#E5E5E5',
         light: '#FEFEFE'
     },
+}
+
+export const types = {
+    'normal': '../assets/img/Pokemon_Type_Icon_Normal.svg',
+    'fire': '../assets/img/Pokemon_Type_Icon_Fire.svg',
+    'water': '../assets/img/Pokemon_Type_Icon_Water.svg',
+    'grass': '../assets/img/Pokemon_Type_Icon_Grass.svg',
+    'flying': '../assets/img/Pokemon_Type_Icon_Flying.svg',
+    'fighting': '../assets/img/Pokemon_Type_Icon_Fighting.svg',
+    'poison': '../assets/img/Pokemon_Type_Icon_Poison.svg',
+    'electric': '../assets/img/Pokemon_Type_Icon_Electric.svg',
+    'ground': '../assets/img/Pokemon_Type_Icon_Ground.svg',
+    'rock': '../assets/img/Pokemon_Type_Icon_Rock.svg',
+    'psychic': '../assets/img/Pokemon_Type_Icon_Psychic.svg',
+    'ice': '../assets/img/Pokemon_Type_Icon_Ice.svg',
+    'bug': '../assets/img/Pokemon_Type_Icon_Bug.svg',
+    'ghost': '../assets/img/Pokemon_Type_Icon_Ghost.svg',
+    'steel': '../assets/img/Pokemon_Type_Icon_Steel.svg',
+    'dragon': '../assets/img/Pokemon_Type_Icon_Dragon.svg',
+    'dark': '../assets/img/Pokemon_Type_Icon_Dark.svg',
+    'fairy': '../assets/img/Pokemon_Type_Icon_Fairy.svg'
 }

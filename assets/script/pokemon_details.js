@@ -1,24 +1,30 @@
 import { Pokemon, Stats } from "./models.js";
-import { colors } from "./templates.js";
-import { cardTemplate, CardDetailsGrafs, cardDetailsAbilities } from "./templates.js";
+import { colors, types } from "./templates.js";
+import { cardTypeImg, cardDetailsGrafs, cardDetailsAbilities } from "./templates.js";
 
 const pokeImg = document.getElementById('img-pokemon');
 const pokeName = document.getElementById("name-pokemon");
 const container = document.getElementById('container');
 const containerGrafs = document.getElementById('card-grafs');
 const containerAbilities = document.getElementById('card-abilities');
+const imgTypeContainer = document.getElementById('img-pokeType');
 
 let id = location.search.slice(4)
 
 async function getPokemon() {
     let pokemon = {};
     let pokeAbilities = [];
-    let pokeAbilitiesObj = []
 
     try {
         let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
         let data = await response.json();
 
+        data.types.forEach(type => {
+            let imgURL = types[type.type.name];
+            console.log(types[type.type.name])
+            imgTypeContainer.innerHTML += cardTypeImg(imgURL)
+        })
+        
         let pokemonStats = new Stats(
             data.stats[0].base_stat,
             data.stats[1].base_stat,
@@ -64,7 +70,7 @@ async function getPokemon() {
         let value = pokemon.stats[stats];
         let color = colors[pokemon.getColor].normal
 
-        containerGrafs.innerHTML += CardDetailsGrafs(stats, value)
+        containerGrafs.innerHTML += cardDetailsGrafs(stats, value)
         containerGrafs.style.borderColor = color;
         container.style.borderColor = color
 
@@ -90,9 +96,5 @@ async function getPokemon() {
         }
         
     })
-    
-
-    
-
 }
 getPokemon()

@@ -15,6 +15,14 @@ ion-col {
     text-decoration: none;
 }
 
+#img-pokeType {
+    margin: 1rem 2rem;
+}
+
+.img-type {
+    width: 3rem;
+}
+
 .container {
     border: 1px solid var(--ion-color-medium);
 }
