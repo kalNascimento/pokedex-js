@@ -58,10 +58,10 @@ export function cardDetailsAbilities(name, desc) {
                     class="ability ion-margin-bottom"
                     color="primary">
                     <ion-col>
-                        <ion-row class="ion-padding-horizontal">
-                            <ion-title>${name}</ion-title>
+                        <ion-row class="ion-padding-horizontal ion-justify-content-center">
+                            <ion-title class="ion-padding">${name}</ion-title>
                         </ion-row>
-                        <ion-row class="ion-padding-horizontal">
+                        <ion-row class="ion-padding-horizontal ion-justify-content-center">
                             <ion-subtitle class="desc-ability">${desc}</ion-subtitle>
                         </ion-row>
                     </ion-col>
