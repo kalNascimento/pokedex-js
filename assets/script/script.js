@@ -10,8 +10,17 @@ let pokeArray = [];
 async function getPokemons() {
     try {
         let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
-        let data = await response.json();
-        createPokeObj(data.results)
+        let data = await response.json()
+        .then(data2 => {
+            if (data2.results.length == limit) {
+                console.log('ok1')
+                createPokeObj(data2.results)
+            }
+        });
+
+        // if (data.results.length == limit) {
+        //     createPokeObj(data.results)
+        // }
     } 
     catch(err) {
         console.log(err);
@@ -21,7 +30,7 @@ async function getPokemons() {
 
 function createPokeObj(pokemon) {
     let pokemonObj;
-
+    console.log('ok2')
     pokemon.forEach(async (e, i) => {
         let id = e.url.slice(34).replace('/', '')
         let data;
@@ -34,7 +43,7 @@ function createPokeObj(pokemon) {
                 id,
                 e.name,
                 data.color.name,
-                data.habitat.name,
+                data.habitat.name, //TODO: a partir de um certo numero n tem habitat
                 '',
                 `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`
             )
@@ -45,19 +54,20 @@ function createPokeObj(pokemon) {
         }
 
         if(i == (limit - 1)) {
+            //TODO: corrigir pokeArray n sendo totalmente construido
+            console.log('ok3')
+            console.log(pokeArray)
             createCards(pokeArray);
         }
     });
 }
 
 function createCards(pokemon) {
-    let test = 0;
-    test = pokeArray.sort(function(a, b) {
+    pokeArray = pokeArray.sort(function(a, b) {
         return a.id - b.id;
     });
 
-    console.log(test)
-    test.forEach((poke) => {
+    pokeArray.forEach((poke) => {
         let color = poke.color
         pokelist.innerHTML += cardTemplate(poke);
         document.getElementById(`pokecard-header-${poke.id}`)
