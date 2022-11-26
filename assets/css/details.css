@@ -77,16 +77,6 @@ ion-col {
     ion-content img {
         width: 50%;
     }
-
-    .return {
-        position: relative;
-        top: 2rem;
-        margin: 4rem;
-        border-radius: .25rem;
-        padding: .5rem 1rem;
-        background-color: var(--ion-color-secondary);
-        text-decoration: none;
-    }
     
     .container {
         min-width: fit-content;
@@ -109,13 +99,6 @@ ion-col {
         height: 35px;
     }
     
-    .ability {
-        width: 90%;
-    }
-    
-    .desc-ability {
-        width: 90%;
-    }
     .stats-number {
         font-size: .75rem !important;
     }
