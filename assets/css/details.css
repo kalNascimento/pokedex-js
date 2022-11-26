@@ -20,7 +20,7 @@ ion-col {
 }
 
 .img-type {
-    width: 3rem;
+    width: 3rem !important;
 }
 
 .container {

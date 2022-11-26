@@ -73,7 +73,7 @@ export function cardDetailsAbilities(name, desc) {
 
 export function cardTypeImg(imgURL) {
     const img = `
-        <ion-col size="1">
+        <ion-col size="auto">
             <img 
                 alt="pokemons s2"
                 class="img-type" 
