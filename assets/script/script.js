@@ -1,13 +1,15 @@
 import { Pokemon } from "./models.js";
 import { cardTemplate, colors } from "./templates.js";
 
-let index = 20;
+let offset = 0;
+let limit = 10;
+
 const pokelist = document.getElementById("pokelist");
 let pokeArray = [];
 
 async function getPokemons() {
     try {
-        let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=2&offset=0`);
+        let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
         let data = await response.json();
         createPokeObj(data.results)
     } 
@@ -42,7 +44,7 @@ function createPokeObj(pokemon) {
             console.log(err);
         }
 
-        if(i == (index - 1)) {
+        if(i == (limit - 1)) {
             createCards(pokeArray);
         }
     });
