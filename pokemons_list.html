@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <script type="module" src="./assets/script/templates.js" defer></script>
-    <script type="module" src="./assets/script/function.js" defer></script>
     <script type="module" src="./assets/script/script.js" defer></script>
+    <script src="./assets/script/function.js" defer></script>
     <title>.: POKEDEX :.</title>
 
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
@@ -62,7 +62,8 @@
             </ion-toolbar>
         </ion-header>
     
-        <ion-content>
+        <ion-content
+            color="primary">
             <ion-grid>
                 <ion-row
                     id="pokelist" 
@@ -71,7 +72,6 @@
                 </ion-row>
             </ion-grid>
         </ion-content>
-
         <ion-footer>
             <ion-toolbar 
                 color="secondary">

@@ -14,6 +14,16 @@ function searchVisible(bool) {
     }
 }
 
+function searchPokemon(parameter, data) {
+    const pattern = new RegExp(parameter + '\\w+')
+    
+    data.forEach(pokemon => {
+        if (pattern.test(pokemon.name)) {
+            console.log(pokemon)
+        }
+    });
+}
+
 function getColor(id) {
     let img = new Image();
     img.src= `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`;

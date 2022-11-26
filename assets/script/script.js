@@ -1,36 +1,28 @@
 import { Pokemon } from "./models.js";
 import { cardTemplate, colors } from "./templates.js";
 
-let offset = 0;
-let limit = 10;
-
+const nextPage = document.getElementById('nextPage');
 const pokelist = document.getElementById("pokelist");
-let pokeArray = [];
+
+export let pokeArray = [];
+let offset = 0;
+let limit = 20;
+
 
 async function getPokemons() {
     try {
         let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
         let data = await response.json()
-        .then(data2 => {
-            if (data2.results.length == limit) {
-                console.log('ok1')
-                createPokeObj(data2.results)
-            }
-        });
-
-        // if (data.results.length == limit) {
-        //     createPokeObj(data.results)
-        // }
+        console.log(data)
+        createPokeObj(data.results)
     } 
     catch(err) {
-        console.log(err);
+        console.error(err);
     }
 }
 
-
 function createPokeObj(pokemon) {
     let pokemonObj;
-    console.log('ok2')
     pokemon.forEach(async (e, i) => {
         let id = e.url.slice(34).replace('/', '')
         let data;
@@ -45,24 +37,28 @@ function createPokeObj(pokemon) {
                 data.color.name,
                 data.habitat.name, //TODO: a partir de um certo numero n tem habitat
                 '',
-                `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`
+                `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`
             )
             pokeArray.push(pokemonObj);
         }
         catch(err) {
-            console.log(err);
+            console.error(err);
         }
 
         if(i == (limit - 1)) {
             //TODO: corrigir pokeArray n sendo totalmente construido
-            console.log('ok3')
-            console.log(pokeArray)
-            createCards(pokeArray);
+            if (pokeArray.length == limit) {
+                createCards(pokeArray);
+            } else {
+                window.location.reload()
+            }
         }
     });
 }
 
 function createCards(pokemon) {
+    pokelist.innerHTML = '';
+
     pokeArray = pokeArray.sort(function(a, b) {
         return a.id - b.id;
     });
@@ -77,4 +73,6 @@ function createCards(pokemon) {
     })
 }
 
-getPokemons();
+
+
+getPokemons(limit, offset);

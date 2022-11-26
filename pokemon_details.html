@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/details.css">
     <script type="module" src="./assets/script/templates.js" defer></script>
     <script type="module" src="./assets/script/function.js" defer></script>
     <script type="module" src="./assets/script/pokemon_details.js" defer></script>
@@ -61,8 +62,45 @@
             </ion-toolbar>
         </ion-header>
 
-        <ion-content id="poke-details">
-
+        <ion-content 
+            id="poke-details"
+            color="primary">
+            <ion-grid
+                class="ion-margin-vertical">
+                <ion-row
+                    id="pokelist" 
+                    class="ion-justify-content-center">
+                    <a class="return"href="./pokemons_list.html">voltar</a>
+                    <ion-card
+                        id="container"
+                        class="container ion-text-center"
+                        color="primary">
+                        
+                        <img 
+                            id="img-pokemon"
+                            alt="pokemons s2" 
+                            src="" />
+                        <ion-card-header>
+                            <ion-card-title
+                                id="name-pokemon"
+                                class="ion-text-center ion-text-capitalize">
+                                pokemon
+                            </ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <ion-grid class="flex jc-center">
+                                <ion-row 
+                                    id="card-grafs" 
+                                    class="graf-container ion-nowrap ion-align-items-end">
+                                </ion-row>
+                            </ion-grid>
+                            <ion-grid id="card-abilities">
+                            </ion-grid>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-row>
+            </ion-grid>
+            
         </ion-content>
 
         <ion-footer>
