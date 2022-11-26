@@ -7,7 +7,7 @@ let pokeArray = [];
 
 async function getPokemons() {
     try {
-        let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${index}&offset=0`);
+        let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=2&offset=0`);
         let data = await response.json();
         createPokeObj(data.results)
     } 
@@ -49,11 +49,13 @@ function createPokeObj(pokemon) {
 }
 
 function createCards(pokemon) {
-    pokeArray = pokeArray.sort(function(a, b) {
+    let test = 0;
+    test = pokeArray.sort(function(a, b) {
         return a.id - b.id;
     });
 
-    pokeArray.forEach((poke) => {
+    console.log(test)
+    test.forEach((poke) => {
         let color = poke.color
         pokelist.innerHTML += cardTemplate(poke);
         document.getElementById(`pokecard-header-${poke.id}`)
