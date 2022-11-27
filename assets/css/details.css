@@ -28,7 +28,7 @@ ion-col {
 }
 
 .graf {
-    width: 1rem;
+    width: 1.25rem;
     height: 100px;
 }
 
@@ -58,6 +58,7 @@ ion-col {
 
 .stats-name {
     text-transform: uppercase;
+    width: 110%;
     font-size: .5rem !important;
     padding: .5rem 0;
     height: 35px;

@@ -31,7 +31,8 @@ export function cardDetailsGrafs(name, value) {
             <ion-col>
                 <ion-grid>
                     <i-col 
-                        class="flex column ai-center">
+                        class="flex column ai-center"
+                        size="auto">
                         <ion-row>
                             <p class="stats-number">${value}</p>
                         </ion-row>
