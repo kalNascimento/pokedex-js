@@ -29,7 +29,7 @@ ion-col {
 }
 
 .graf {
-    width: 1.25rem;
+    width: 1.5rem;
     height: 100px;
 }
 
@@ -50,7 +50,7 @@ ion-col {
 }
 
 .graf-container {
-    width: fit-content;
+    width: 100%;
     height: 12rem;
     margin: .5rem 0;
     border-top: 1px solid var(--ion-color-medium);
