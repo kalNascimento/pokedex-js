@@ -1,6 +1,7 @@
 ion-card {
     width: fit-content;
-    max-width: 300px;
+    max-width: 100%;
+    margin: 0 1rem;
 }
 
 ion-col {
