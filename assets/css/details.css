@@ -51,7 +51,7 @@ ion-col {
 .graf-container {
     width: fit-content;
     height: 12rem;
-    margin: 1rem 0;
+    margin: .5rem 0;
     border-top: 1px solid var(--ion-color-medium);
     border-bottom: 1px solid var(--ion-color-medium);
 }
