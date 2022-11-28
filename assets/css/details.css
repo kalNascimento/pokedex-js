@@ -90,6 +90,7 @@ ion-col {
 
     .container {
         min-width: fit-content;
+        max-width: 80%;
     }
     .graf {
         width: 2rem;
