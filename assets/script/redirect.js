@@ -1,4 +1,8 @@
+const protocol = window.location.protocol;
+let host = window.location.href;
+
+if (protocol == 'file:') host = window.location.href.slice(0, 48);
+
 setTimeout(() => {
-    console.log('ok')
-    window.location.href = "../../pokemons_list.html";
-}, 8000)
+    window.location.href = `${host}pokemons_list.html`;
+}, 3000)

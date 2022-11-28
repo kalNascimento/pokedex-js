@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/details.css">
     <script type="module" src="./assets/script/templates.js" defer></script>
     <script type="module" src="./assets/script/function.js" defer></script>
     <script type="module" src="./assets/script/pokemon_details.js" defer></script>
@@ -22,11 +23,13 @@
                     <ion-row>
                         <ion-col class="ion-padding-horizontal">
                             <ion-title>
-                                <img 
-                                    class="header-logo" 
-                                    src="./assets/img/pokeball_icon.svg" 
-                                    alt=""
+                                <a href="/">
+                                    <img 
+                                        class="header-logo" 
+                                        src="./assets/img/pokeball_icon.svg" 
+                                        alt=""
                                     >
+                                </a>
                             </ion-title>
                         </ion-col>
                         <ion-col class="ion-padding-horizontal ion-text-right">
@@ -38,22 +41,22 @@
                             <div 
                                 id="searchbar" 
                                 class="ion-hide ion-text-right">
-                                    <ion-icon
-                                        id="searchbar-icon-inside" 
-                                        name="search-outline"
-                                        onclick="">
-                                    </ion-icon>
-    
-                                    <input 
-                                        type="text" 
-                                        placeholder="Awesome Input">
-                                    </input>
-    
-                                    <ion-icon
-                                        id="searchbar-icon" 
-                                        name="close-outline"
-                                        onclick="searchVisible(false)">
-                                    </ion-icon>
+                                <ion-icon
+                                    id="searchbar-icon-inside" 
+                                    name="search-outline"
+                                    onclick="">
+                                </ion-icon>
+
+                                <input 
+                                    type="text" 
+                                    placeholder="Awesome Input">
+                                </input>
+
+                                <ion-icon
+                                    id="searchbar-icon" 
+                                    name="close-outline"
+                                    onclick="searchVisible(false)">
+                                </ion-icon>
                             </div>
                         </ion-col>
                     </ion-row>
@@ -61,8 +64,50 @@
             </ion-toolbar>
         </ion-header>
 
-        <ion-content id="poke-details">
-
+        <ion-content 
+            id="poke-details"
+            color="primary">
+            <ion-grid
+                class="ion-margin-vertical">
+                <ion-row size="auto" 
+                    class="ion-justify-content-center">
+                    <a class="return "href="./pokemons_list.html">voltar</a>
+                </ion-row>
+                <ion-row
+                    id="pokelist" 
+                    class="ion-justify-content-center">
+                    <ion-card
+                        id="container"
+                        class="container ion-text-center"
+                        color="primary">
+                        <ion-row id="img-pokeType" class="ion-justify-content-center">
+                            
+                        </ion-row>
+                        <img 
+                            id="img-pokemon"
+                            alt="pokemons s2" 
+                            src="" />
+                        <ion-card-header>
+                            <ion-card-title
+                                id="name-pokemon"
+                                class="ion-text-center ion-text-capitalize ion-padding-vertical">
+                                pokemon
+                            </ion-card-title>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <ion-grid class="flex jc-center">
+                                <ion-row 
+                                    id="card-grafs" 
+                                    class="graf-container ion-nowrap ion-align-items-end">
+                                </ion-row>
+                            </ion-grid>
+                            <ion-grid id="card-abilities">
+                            </ion-grid>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-row>
+            </ion-grid>
+            
         </ion-content>
 
         <ion-footer>
