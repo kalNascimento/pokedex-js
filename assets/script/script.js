@@ -13,7 +13,6 @@ async function getPokemons() {
     try {
         let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
         let data = await response.json()
-        console.log(data)
         createPokeObj(data.results)
     } 
     catch(err) {

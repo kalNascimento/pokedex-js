@@ -21,7 +21,6 @@ async function getPokemon() {
 
         data.types.forEach(type => {
             let imgURL = types[type.type.name];
-            console.log(types[type.type.name])
             imgTypeContainer.innerHTML += cardTypeImg(imgURL)
         })
         
