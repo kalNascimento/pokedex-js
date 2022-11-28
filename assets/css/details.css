@@ -78,7 +78,7 @@ ion-col {
 }
 
 
-@media (min-width: 600px)
+@media (min-width: 768px)
 {
     ion-col {
         padding: 0 .5rem;
@@ -89,7 +89,6 @@ ion-col {
     }
 
     .container {
-        min-width: 50%;
         max-width: 50%;
     }
     .graf {
