@@ -1,5 +1,6 @@
 export function cardTemplate(pokemon) {
-    const pokeCard = `
+    const pokeCard = 
+        `
             <ion-col 
                 id="pokecard-${pokemon.id}"
                 class="ion-padding"
@@ -22,12 +23,13 @@ export function cardTemplate(pokemon) {
                     </ion-card>
                 </a>
             </ion-col>
-            `;
+        `;
     return pokeCard;
 }
 
 export function cardDetailsGrafs(name, value) {
-    const grafs = `
+    const grafs = 
+        `
             <ion-col>
                 <ion-grid>
                     <i-col 
@@ -46,12 +48,13 @@ export function cardDetailsGrafs(name, value) {
                     </i-col>
                 </ion-grid>
             </ion-col>
-            `;
+        `;
     return grafs;
 }
 
 export function cardDetailsAbilities(name, desc) { 
-    const abilites = `
+    const abilites = 
+        `
             <ion-row 
                 id="" 
                 class="ion-justify-content-center">
@@ -68,19 +71,20 @@ export function cardDetailsAbilities(name, desc) {
                     </ion-col>
                 </ion-card>
             </ion-row>
-            `;
+        `;
     return abilites;
 }
 
 export function cardTypeImg(imgURL) {
-    const img = `
-        <ion-col size="auto">
-            <img 
-                alt="pokemons s2"
-                class="img-type" 
-                src="${imgURL}" />
-        </ion-col>
-    `
+    const img = 
+        `
+            <ion-col size="auto">
+                <img 
+                    alt="pokemons s2"
+                    class="img-type" 
+                    src="${imgURL}" />
+            </ion-col>
+        `
     return img;
 }
 

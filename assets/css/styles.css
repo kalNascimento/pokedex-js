@@ -2,6 +2,16 @@
 @import url("./animation.css");
 @import url("./homepage.css");
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
 :root {
     /* Cores */
     --background: #F1F1F1;
@@ -70,14 +80,4 @@
     --font-32-bold: 1rem;
     /* Outros */
     --pokeball-animation-timing: 8s;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-a {
-    text-decoration: none;
 }

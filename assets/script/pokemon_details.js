@@ -54,7 +54,6 @@ async function getPokemon() {
 
         pokemon.setColor = data.color.name;
         pokemon.setHabitat = data.habitat.name;
-
     }
     catch(err) {
         console.log(err);
@@ -74,9 +73,9 @@ async function getPokemon() {
         container.style.borderColor = color
 
         let graf = document.getElementById(`graf-${stats}`).style
+
         graf.height = `${value}px`;
         graf.backgroundColor = color;
-
     })
 
     pokeAbilities.forEach(async pokeAbility => {
@@ -93,7 +92,7 @@ async function getPokemon() {
         catch(err) {
             console.log(err);
         }
-        
     })
 }
+
 getPokemon()

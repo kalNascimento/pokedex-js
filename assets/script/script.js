@@ -1,13 +1,11 @@
 import { Pokemon } from "./models.js";
 import { cardTemplate, colors } from "./templates.js";
 
-const nextPage = document.getElementById('nextPage');
 const pokelist = document.getElementById("pokelist");
 
-export let pokeArray = [];
+let pokeArray = [];
 let offset = 0;
-let limit = 20;
-
+let limit = 52;
 
 async function getPokemons() {
     try {
@@ -71,7 +69,5 @@ function createCards(pokemon) {
             .style.background = colors[color].light;
     })
 }
-
-
 
 getPokemons(limit, offset);
