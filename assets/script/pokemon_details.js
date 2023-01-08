@@ -2,12 +2,12 @@ import { Pokemon, Stats } from "./models.js";
 import { colors, types } from "./templates.js";
 import { cardTypeImg, cardDetailsGrafs, cardDetailsAbilities } from "./templates.js";
 
-const pokeImg = document.getElementById('img-pokemon');
+const pokeImg = document.getElementById("img-pokemon");
 const pokeName = document.getElementById("name-pokemon");
-const container = document.getElementById('container');
-const containerGrafs = document.getElementById('card-grafs');
-const containerAbilities = document.getElementById('card-abilities');
-const imgTypeContainer = document.getElementById('img-pokeType');
+const container = document.getElementById("container");
+const containerGrafs = document.getElementById("card-grafs");
+const containerAbilities = document.getElementById("card-abilities");
+const imgTypeContainer = document.getElementById("img-pokeType");
 
 let id = location.search.slice(4)
 

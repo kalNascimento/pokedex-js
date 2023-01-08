@@ -1,23 +1,37 @@
 #searchbar {
     width: fit-content;
-    height: 24px;
+    height: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+#searchbar-icon,
+#searchbar-icon-inside,
 #searchbar-icon-outside {
     font-size: 1.5rem;
 }
 
-#searchbar-icon-inside {
-    font-size: 1rem;
+#searchBar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+ion-button {
+    width: 10rem;
 }
 
 input {
     background-color: transparent;
     border: none;
-    padding: 0 8px;
+    padding: 0 2rem;
+    min-width: 300px;
 }
 
 .debug {
@@ -31,6 +45,11 @@ ion-card {
 
 ion-list {
     display: flex;
+}
+
+ion-content {
+    min-height: 500px;
+    margin-bottom: 2rem;
 }
 
 @media (min-width: 600px)

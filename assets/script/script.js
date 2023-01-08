@@ -1,11 +1,51 @@
 import { Pokemon } from "./models.js";
 import { cardTemplate, colors } from "./templates.js";
+import { searchPokemon } from "./function.js";
 
 const pokelist = document.getElementById("pokelist");
+const searchbarClickAction = document.getElementById("searchbar-icon-inside");
+const searchbarEnterAction = document.getElementById("input");
+const avancarPag = document.getElementById("avancar");
+const voltarPag = document.getElementById("voltar");
+
+let host = window.location.search;
 
 let pokeArray = [];
 let offset = 0;
-let limit = 52;
+let limit = 20;
+
+if (host == '') {
+    window.location.href = `${host}pokemons_list.html?init=0&end=10`;
+}
+
+getParams();
+
+function getParams() {
+    host = host.split(/\?|&/);
+    host.shift()
+
+    offset = host[0].split("=")[1];
+    limit = host[1].split("=")[1];
+}
+
+
+avancarPag.addEventListener('click', () => {
+    offset = limit;
+    limit = Number(limit) + 20;
+
+    window.location.href = `pokemons_list.html?init=${offset}&end=${limit}`;
+});
+
+voltarPag.addEventListener('click', () => {
+    offset = offset - 20;
+    limit = Number(limit) - 20;
+
+    if (offset < 0) {
+        window.location.href = `pokemons_list.html?init=0&end=20`;
+    } else {
+        window.location.href = `pokemons_list.html?init=${offset}&end=${limit}`;
+    }
+});
 
 async function getPokemons() {
     try {
@@ -45,6 +85,8 @@ function createPokeObj(pokemon) {
         if(i == (limit - 1)) {
             //TODO: corrigir pokeArray n sendo totalmente construido
             if (pokeArray.length == limit) {
+                voltarPag.setAttribute('disabled', false);
+                avancarPag.setAttribute('disabled', false);
                 createCards(pokeArray);
             } else {
                 window.location.reload()
@@ -56,11 +98,11 @@ function createPokeObj(pokemon) {
 function createCards(pokemon) {
     pokelist.innerHTML = '';
 
-    pokeArray = pokeArray.sort(function(a, b) {
+    pokemon = pokemon.sort(function(a, b) {
         return a.id - b.id;
     });
 
-    pokeArray.forEach((poke) => {
+    pokemon.forEach((poke) => {
         let color = poke.color
         pokelist.innerHTML += cardTemplate(poke);
         document.getElementById(`pokecard-header-${poke.id}`)
@@ -70,4 +112,35 @@ function createCards(pokemon) {
     })
 }
 
+searchbarEnterAction.addEventListener('keypress', (event) => {
+    let pokeSearch;
+
+    if (event.key == 'Enter') {
+        if (searchbarEnterAction.value == '') {
+            voltarPag.setAttribute('disabled', false);
+            avancarPag.setAttribute('disabled', false);
+            pokeSearch = pokeArray;
+        } else {
+            pokeSearch = searchPokemon(searchbarEnterAction.value, pokeArray);
+            voltarPag.setAttribute('disabled', true);
+            avancarPag.setAttribute('disabled', true);
+        }
+        createCards(pokeSearch);
+    }
+});
+
+searchbarClickAction.addEventListener('click', () => {
+    if (searchbarEnterAction.value == '') {
+        voltarPag.setAttribute('disabled', false);
+        avancarPag.setAttribute('disabled', false);
+        pokeSearch = pokeArray;
+    } else {
+        pokeSearch = searchPokemon(searchbarEnterAction.value, pokeArray);
+        voltarPag.setAttribute('disabled', true);
+        avancarPag.setAttribute('disabled', true);
+    }
+    createCards(pokeSearch);
+});
+
 getPokemons(limit, offset);
+
