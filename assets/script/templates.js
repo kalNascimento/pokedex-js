@@ -1,11 +1,13 @@
 export function cardTemplate(pokemon) {
     const pokeCard = 
         `
-            <ion-col 
+            <ion-col
                 id="pokecard-${pokemon.id}"
                 class="ion-padding"
                 size="auto">
-                <a href="pokemon_details.html?id=${pokemon.id}">
+                <a 
+                    title="Click para ver mais detalhes"
+                    href="pokemon_details.html?id=${pokemon.id}">
                     <ion-card
                         id="pokecard-body-${pokemon.id}"
                         class="ion-text-center">

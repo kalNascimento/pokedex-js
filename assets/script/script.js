@@ -15,7 +15,7 @@ let offset = 0;
 let limit = 20;
 
 if (host == '') {
-    window.location.href = `${host}pokemons_list.html?init=0&end=10`;
+    window.location.href = `${host}pokemons_list.html?init=0&end=20`;
 }
 
 getParams();
@@ -49,7 +49,7 @@ voltarPag.addEventListener('click', () => {
 
 async function getPokemons() {
     try {
-        let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
+        let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=386&offset=0`);
         let data = await response.json()
         createPokeObj(data.results)
     } 
@@ -96,19 +96,25 @@ function createPokeObj(pokemon) {
 }
 
 function createCards(pokemon) {
+    if (pokemon == '') {
+        pokemon = pokeArray;
+    }
+
     pokelist.innerHTML = '';
 
     pokemon = pokemon.sort(function(a, b) {
         return a.id - b.id;
     });
 
-    pokemon.forEach((poke) => {
-        let color = poke.color
-        pokelist.innerHTML += cardTemplate(poke);
-        document.getElementById(`pokecard-header-${poke.id}`)
-            .style.background = colors[color].normal;
-        document.getElementById(`pokecard-body-${poke.id}`)
-            .style.background = colors[color].light;
+    pokemon.forEach((poke, index) => {
+        if (index < limit && index >= offset) {
+            let color = poke.color
+            pokelist.innerHTML += cardTemplate(poke);
+            document.getElementById(`pokecard-header-${poke.id}`)
+                .style.background = colors[color].normal;
+            document.getElementById(`pokecard-body-${poke.id}`)
+                .style.background = colors[color].light;
+        }
     })
 }
 
@@ -142,5 +148,5 @@ searchbarClickAction.addEventListener('click', () => {
     createCards(pokeSearch);
 });
 
-getPokemons(limit, offset);
+getPokemons();
 
