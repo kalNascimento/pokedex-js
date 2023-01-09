@@ -39,8 +39,7 @@ input {
 }
 
 ion-card {
-    width: fit-content;
-    min-width: 140px;
+    width: 140px;
 }
 
 ion-list {
