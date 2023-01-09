@@ -64,4 +64,8 @@ ion-content {
     ion-card-title {
         font-size: 1rem;
     }
+
+    input {
+        width: 200px;
+    }
 }
