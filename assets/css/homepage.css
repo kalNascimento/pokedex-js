@@ -30,8 +30,12 @@ ion-button {
 input {
     background-color: transparent;
     border: none;
-    padding: 0 2rem;
-    min-width: 200px;
+    padding: 0 .5rem;
+    width: 14rem;
+}
+
+input::placeholder {
+    font-size: .875rem;
 }
 
 .debug {
@@ -72,6 +76,7 @@ ion-content {
 
     input {
         width: 300px;
+        padding: 0 2rem;
     }
 
     ion-button {
