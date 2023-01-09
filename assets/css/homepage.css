@@ -68,4 +68,8 @@ ion-content {
     input {
         width: 200px;
     }
+
+    ion-button {
+        width: 9rem;
+    }
 }
