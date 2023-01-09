@@ -24,14 +24,14 @@
 }
 
 ion-button {
-    width: 10rem;
+    width: 9rem;
 }
 
 input {
     background-color: transparent;
     border: none;
     padding: 0 2rem;
-    min-width: 300px;
+    min-width: 200px;
 }
 
 .debug {
@@ -41,6 +41,11 @@ input {
 ion-card {
     width: 140px;
 }
+
+ion-card-title {
+    font-size: 1rem;
+}
+
 
 ion-list {
     display: flex;
@@ -62,11 +67,11 @@ ion-content {
     }
 
     ion-card-title {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 
     input {
-        width: 200px;
+        width: 300px;
     }
 
     ion-button {
